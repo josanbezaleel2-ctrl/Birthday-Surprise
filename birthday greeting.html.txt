@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Queen 👑</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe0c2, #e5d5ff, #c9edff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Trebuchet MS', sans-serif;
+  overflow-x: hidden;
+}
+
+.card {
+  background: #fffdf9;
+  width: 100%;
+  max-width: 430px;
+  padding: 30px 22px;
+  border-radius: 35px;
+  text-align: center;
+  border: 3px solid white;
+  box-shadow: 0 15px 40px #9d77bb55;
+  position: relative;
+  z-index: 2;
+}
+
+.top {
+  background: #ffe4ef;
+  color: #c45d91;
+  padding: 9px;
+  border-radius: 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  color: #a66bd4;
+  font-size: 34px;
+  margin: 20px 0 10px;
+}
+
+.cake {
+  font-size: 90px;
+  margin: 15px;
+  animation: dance 1.5s infinite;
+}
+
+@keyframes dance {
+  0%, 100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(8deg) translateY(-12px);
+  }
+}
+
+.name {
+  color: #f08aab;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.message {
+  color: #77677c;
+  line-height: 1.8;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+button {
+  background: #b78be5;
+  border: none;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 8px;
+  transition: .3s;
+}
+
+button:hover {
+  background: #f08aab;
+  transform: scale(1.08);
+}
+
+.gift {
+  font-size: 65px;
+  cursor: pointer;
+  margin: 15px;
+  display: inline-block;
+  animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+
+#surprise {
+  display: none;
+  background: #fff0f5;
+  border-radius: 20px;
+  padding: 20px;
+  color: #b55d99;
+  line-height: 1.8;
+  margin-top: 15px;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#partyMessage {
+  color: #a66bd4;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.sparkle {
+  position: fixed;
+  top: -30px;
+  pointer-events: none;
+  animation: fall 4s linear forwards;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(500deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="top">
+    ✨ A SPECIAL DAY FOR A SPECIAL GIRL ✨
+  </div>
+
+  <h1>Happy Birthday!</h1>
+
+  <div class="cake">🎂</div>
+
+  <div class="name">Birthday Queen 👑</div>
+
+  <div class="message">
+    Dear crazy cousin sister! 💜
+    <br><br>
+
+    Congratulations on surviving another
+    365 days of being dramatic! 😂
+
+    <br><br>
+
+    Thank you for being my gossip partner,
+    my secret keeper and my favourite
+    headache. 🤣
+
+    <br><br>
+
+    May your days be full of laughter,
+    adventures, shopping and unlimited cake!
+
+    <br><br>
+
+    Don't grow up too much...
+    I still need my partner in crime! 😜
+  </div>
+
+  <button onclick="party()">
+    🎉 PARTY TIME
+  </button>
+
+  <div id="partyMessage"></div>
+
+  <p style="color:#a66bd4;margin-top:20px">
+    A mysterious gift is waiting...
+  </p>
+
+  <div class="gift" onclick="gift()">🎁</div>
+
+  <div id="surprise">
+
+    <h2>OMG YOU FOUND IT!! 🎊</h2>
+
+    <br>
+
+    Your gift is...
+
+    <br><br>
+
+    A lifetime supply of my love,
+    my madness and my annoying messages! 🤣
+
+    <br><br>
+
+    No refunds. No exchanges.
+
+    <br><br>
+
+    LOTS OF HUGS, MISS YOUUU!! 🥹💕
+
+  </div>
+
+  <p style="margin-top:20px;color:#c58bb5">
+    Forever your crazy cousin! 💕
+  </p>
+
+</div>
+
+<script>
+
+const decorations = [
+  "✨", "🎊", "⭐", "🎉", "🎈"
+];
+
+function sparkle() {
+
+  const s = document.createElement("div");
+
+  s.className = "sparkle";
+
+  s.textContent =
+    decorations[
+      Math.floor(Math.random() * decorations.length)
+    ];
+
+  s.style.left = Math.random() * 100 + "vw";
+
+  s.style.fontSize =
+    (15 + Math.random() * 25) + "px";
+
+  s.style.animationDuration =
+    (2 + Math.random() * 3) + "s";
+
+  document.body.appendChild(s);
+
+  setTimeout(() => s.remove(), 5000);
+}
+
+function party() {
+
+  document.getElementById("partyMessage").textContent =
+    "WOOOOHOOOO!! LET THE MADNESS BEGIN!! 🥳";
+
+  for (let i = 0; i < 50; i++) {
+    setTimeout(sparkle, i * 35);
+  }
+}
+
+function gift() {
+
+  document.getElementById("surprise").style.display =
+    "block";
+
+  document.querySelector(".gift").textContent = "🎊";
+
+  for (let i = 0; i < 35; i++) {
+    setTimeout(sparkle, i * 40);
+  }
+}
+
+</script>
+
+</body>
+</html>
